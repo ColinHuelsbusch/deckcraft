@@ -49,6 +49,8 @@ pub fn start() {
                     if q.contains("show") {
                         app.start_show(0, false);
                     }
+                    // The desktop control channel for the page (`control::request`): agents and tests.
+                    let app = app.with_control(crate::control::channel(&cc.egui_ctx));
                     Ok(Box::new(WebShell { app, inbox }))
                 }),
             )
